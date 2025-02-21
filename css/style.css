@@ -1,0 +1,89 @@
+/* Estilização geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E0E7EF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #E0E7EF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login-button {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Layout principal */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background-color: #E0E7EF;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+/* Estilização da imagem à esquerda */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Conteúdo à direita */
+.content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #5bcedd;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.5s ease-in-out; /* Adiciona a transição */
+}
+
+.button:hover {
+    background-color: #14bdd3; /* Cor alterada ao passar o mouse */
+}
