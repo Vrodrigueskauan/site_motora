@@ -87,3 +87,44 @@ p {
 .button:hover {
     background-color: #14bdd3; /* Cor alterada ao passar o mouse */
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    background-color: #E0E7EF;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.imagem {
+    width: 30%;
+    height: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.informacao {
+    flex: 1;
+    display: flex;
+    align-items: left;
+    background-color: #8DD3E5;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 1000px;
+
+}
+
+.informacao h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.informacao p {
+    font-size: 16px;
+    color: #555;
+}
