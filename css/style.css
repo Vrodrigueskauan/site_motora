@@ -36,10 +36,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
-    background-color: #E0E7EF;
-    padding: 40px;
+    height: 100%;
+    width: 100%;
+    background-color: #92bff1;
+    padding-bottom: 1px;
     margin-top: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+    
 }
 
 /* Estilização da imagem à esquerda */
@@ -88,16 +91,7 @@ p {
     background-color: #14bdd3; /* Cor alterada ao passar o mouse */
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    background-color: #E0E7EF;
-    padding: 20px;
-    width: 100%;
-    max-width: 1000px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
+
 
 .imagem {
     width: 30%;
@@ -127,4 +121,17 @@ p {
 .informacao p {
     font-size: 16px;
     color: #555;
+}
+
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    background-color: #E0E7EF;
+    border-radius: 18px;
+    box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-top: 50px;
+    width: 100%;
 }
