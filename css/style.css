@@ -1,12 +1,8 @@
 /* Estilização geral */
-
 @font-face {
     font-family: '8bit';
     src: url('../fontes/PressStart2P-vaV7.ttf') format('truetype');
 }
-
-
-
 
 body {
     font-family: Arial, sans-serif;
@@ -16,8 +12,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     font-family: '8bit';
+    transition: background-color 0.5s ease; /* Transição suave para a mudança de cor */
 }
 
 /* Cabeçalho */
@@ -26,7 +23,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #FFFFE0;
+    background-color: #F4E1A1;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -48,11 +45,9 @@ header {
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-color: #F4E1A1;
+    background-color: #FFFFE0;
     padding-bottom: 1px;
-    margin-top: 50px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
-    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilização da imagem à esquerda */
@@ -94,15 +89,14 @@ p {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.5s ease-in-out; /* Adiciona a transição */
+    transition: background-color 0.5s ease-in-out;
 }
 
 .button:hover {
-    background-color: #14bdd3; /* Cor alterada ao passar o mouse */
+    background-color: #14bdd3;
 }
 
-
-
+/* Seção de conteúdo adicional */
 .imagem {
     width: 30%;
     height: auto;
@@ -114,13 +108,12 @@ p {
     flex: 1;
     display: flex;
     align-items: left;
-    background-color: #8DD3E5;
+    background-color: #F4E1A1;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     width: 80%;
     max-width: 1000px;
-
 }
 
 .informacao h2 {
@@ -133,15 +126,16 @@ p {
     color: #555;
 }
 
-.conteudo{
+/* Conteúdo de rolagem */
+.conteudo {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 80%;
-    background-color: #E0E7EF;
+    background-color: #F4E1A1;
     border-radius: 18px;
     box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    margin-top: 50px;
+    margin-top: 1px;
     width: 100%;
 }
