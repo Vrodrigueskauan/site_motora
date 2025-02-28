@@ -1,13 +1,23 @@
 /* Estilização geral */
+
+@font-face {
+    font-family: '8bit';
+    src: url('../fontes/PressStart2P-vaV7.ttf') format('truetype');
+}
+
+
+
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #E0E7EF;
+    background-color: #FFFFE0;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    font-family: '8bit';
 }
 
 /* Cabeçalho */
@@ -16,7 +26,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #E0E7EF;
+    background-color: #FFFFE0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -38,7 +48,7 @@ header {
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-color: #92bff1;
+    background-color: #F4E1A1;
     padding-bottom: 1px;
     margin-top: 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
