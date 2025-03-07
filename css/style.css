@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #FFFFE0;
+
     margin: 0;
     padding: 0;
     display: flex;
@@ -34,7 +34,7 @@ header {
 
 .login-button {
     text-decoration: none;
-    color: #007bff;
+    color: #FFFFE0;
     font-weight: bold;
 }
 
@@ -45,7 +45,7 @@ header {
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-color: #FFFFE0;
+
     padding-bottom: 1px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -83,7 +83,7 @@ p {
 
 .button {
     display: inline-block;
-    background-color: #5bcedd;
+    background-color: #F4E1A1;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -93,7 +93,7 @@ p {
 }
 
 .button:hover {
-    background-color: #14bdd3;
+    background-color: #eed278;
 }
 
 /* Seção de conteúdo adicional */
@@ -108,7 +108,7 @@ p {
     flex: 1;
     display: flex;
     align-items: left;
-    background-color: #F4E1A1;
+
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -132,10 +132,28 @@ p {
     align-items: center;
     justify-content: space-between;
     width: 80%;
-    background-color: #F4E1A1;
-    border-radius: 18px;
+
     box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 40px;
     margin-top: 1px;
     width: 100%;
+}
+
+
+.content2 {
+    display: flex;
+    justify-content: space-between; /* Espaça o conteúdo para as extremidades */
+    align-items: flex-start; /* Alinha os itens no topo */
+    margin: 20px;
+}
+
+.content2 img {
+    max-width: 40%; /* Limita o tamanho da imagem */
+    height: auto;
+}
+
+.content2 .text-content {
+    width: 55%; /* Deixa o espaço para o texto */
+    text-align: right; /* Alinha o texto à direita */
+    padding-left: 20px; /* Adiciona um pouco de espaçamento */
 }

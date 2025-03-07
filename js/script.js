@@ -13,7 +13,7 @@ window.addEventListener("scroll", function() {
     
     // Definindo as cores de início e fim
     let startColor = { r: 255, g: 255, b: 224 }; // Cor inicial (bege claro)
-    let endColor = { r: 0, g: 0, b: 255 }; // Cor final (azul)
+    let endColor = { r: 244, g: 225, b: 161 }; 
 
     // Calculando a porcentagem da rolagem
     let scrollPercentage = scrollPosition / (document.documentElement.scrollHeight - window.innerHeight);
