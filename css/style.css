@@ -1,159 +1,751 @@
-/* Estilização geral */
-@font-face {
-    font-family: '8bit';
-    src: url('../fontes/PressStart2P-vaV7.ttf') format('truetype');
+html{
+    scroll-behavior: smooth;
 }
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'font1';
+    src: url('../fontes/Coolvetica\ Rg.otf') 
+ 
+  
+ }
+
+
+
+
 
 body {
-    font-family: Arial, sans-serif;
-
+    font-family: 'font1', sans-serif;
+    background-color: #f9f6ee;
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Evita que a página tenha uma rolagem horizontal indesejada */
+    
+}
+header {
+    background-color: #066;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+}
+.banner {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    width: 100%;
     height: 100%;
-    font-family: '8bit';
-    transition: background-color 0.5s ease; /* Transição suave para a mudança de cor */
+    margin-bottom: 2px;
+    background: #9ACBD0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.banner-text, .banner img{
+
+    opacity: 0;
+    transform: translateX(100px); /* A posição inicial fora da tela */
+    animation: fadeInFromSides 1s forwards;
 }
 
-/* Cabeçalho */
-header {
+.banner-text {
+    width: 50%;
+    font-size: 20px;
+    color: #006A71;
+    animation-delay: 0.5s; /* Texto aparece após 0.5 segundos */
+}
+.banner img {
+    width: 40%;
+    border-radius: 10px;
+    .banner-image {
+        transform: translateX(-100px); /* Imagem começa fora à esquerda */
+        animation-delay: 1s; /* Imagem aparece depois de 1 segundo */
+    }
+}
+
+@keyframes fadeInFromSides {
+    0% {
+      opacity: 0;
+      transform: translateX(100px); /* Texto começa fora da tela à direita */
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0); /* Chega à posição final */
+    }
+  }
+
+
+
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner-text, .banner img {
+        width: 100%;
+    }
+}
+
+
+.pushable {
+    position: relative;
+    background: transparent;
+    padding: 0px;
+    border: none;
+    cursor: pointer;
+    outline-offset: 4px;
+    outline-color: deeppink;
+    transition: filter 250ms;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
+    background: hsl(226, 25%, 69%);
+    border-radius: 8px;
+    filter: blur(2px);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  
+  .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    background: linear-gradient(
+      to right,
+      #409293 0%,
+      #3e8f91 8%,
+      #35797a 92%,
+      #1f4647 100%
+    );
+  }
+  
+  .front {
+    display: block;
+    position: relative;
+    border-radius: 8px;
+    background: #48A6A7;
+    padding: 16px 32px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  }
+  
+  .pushable:hover {
+    filter: brightness(110%);
+  }
+  
+  .pushable:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  }
+  
+  .pushable:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  
+  .pushable:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  }
+  
+  .pushable:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+  }
+  
+  .pushable:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .navbar {
+    background-color: #48A6A7;
+    height: 40%px;
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #F4E1A1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
+    color: #222;
 }
 
-.login-button {
-    text-decoration: none;
-    color: #FFFFE0;
-    font-weight: bold;
-}
-
-/* Layout principal */
-.main-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-
-    padding-bottom: 1px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilização da imagem à esquerda */
-.image-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.image-container img {
-    max-width: 100%;
+.button1 {
+    margin: 0;
     height: auto;
-    border-radius: 10px;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+ /* button1 styling */
+.button1 {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #006A71;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+  }
+  /* this is the text, when you hover on button1 */
+  .hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+  }
+  /* hover */
+  .button1:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+  }
+
+.content{
+    background-color: #f9f6ee;
+    height: 95%;
+    width: 95%;
+    font-family: 'font1', sans-serif;
+    margin: 0 auto;
+    justify-content: space-between;
 }
 
-/* Conteúdo à direita */
-.content {
-    flex: 1;
-    padding: 20px;
+.title{
+    padding-top: 7px;
+    padding-left: 0px;
     text-align: center;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
+.highlight {
+    color: #48A6A7;
+  }
 
-p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.button {
-    display: inline-block;
-    background-color: #F4E1A1;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.5s ease-in-out;
-}
-
-.button:hover {
-    background-color: #eed278;
-}
-
-/* Seção de conteúdo adicional */
-.imagem {
-    width: 30%;
-    height: auto;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-.informacao {
-    flex: 1;
-    display: flex;
-    align-items: left;
-
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 80%;
-    max-width: 1000px;
-}
-
-.informacao h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.informacao p {
-    font-size: 16px;
-    color: #555;
-}
-
-/* Conteúdo de rolagem */
-.conteudo {
+  .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Estilo para a imagem à esquerda */
+  .image-container {
+    flex: 1;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-container img {
+    width: 85%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Estilo para o conteúdo à direita */
+  .content-container {
+    flex: 2;
+    padding-left: 20px;
+  }
 
-    box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    margin-top: 1px;
+  .fade-in-haven {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in-haven.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  /* Seção de serviços */
+  .services-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  .services-section h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilo dos cards */
+  .services {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .card h2 {
+    color: #444;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    color: #666;
+    font-size: 1.1em;
+  }
+  
+  .services-section h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  .invisivel {
+    visibility: hidden;
+} 
+
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #48A6A7;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 20px; /* Distância do fundo da tela */
+    right: 20px; /* Distância da borda direita da tela */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Torna a transição mais suave */
+}
+
+.button.show {
+    opacity: 1; /* Torna visível quando a classe 'show' é adicionada */
+}
+
+.svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.button:hover {
+    width: 140px;
+    border-radius: 50px;
+    background-color: #48A6A7;
+    transition-duration: 0.6s ease; /* Suaviza a transição */
+    transform: scale(1.1); /* Aumenta suavemente o tamanho no hover */
+}
+
+.button:hover .svgIcon {
+    transition-duration: 0.6s ease;
+    transform: translateY(-200%);
+}
+
+.button::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Voltar ao início";
+    color: #f9f6ee;
+    font-size: 0px;
+    transition: font-size 0.6s ease, opacity 0.6s ease; /* Suaviza a transição */
+}
+
+.button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+}
+
+/* Responsabilidade do layout */
+.tratamentos-deficiencias-motoras .conteudo {
+    display: flex;
+    gap: 20px; /* Distância entre o texto e a imagem */
+    align-items: center;
+    transform: translateX(10px); /* Move o conteúdo levemente para a direita */
+    width: 90%; /* Ajusta a largura para 90% da tela */
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+/* Inicialmente oculto */
+.texto, .imagem {
+    opacity: 0;
+    visibility: hidden; /* Inicialmente invisíveis */
+}
+
+/* Texto e imagem animações */
+.texto {
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+}
+
+.imagem {
+    transform: translateX(100%); /* Começa fora da tela à direita */
+}
+
+/* Animações */
+.fadeinTextFromLeft {
+    animation: fadeinTextFromLeft 1s ease-out forwards;
+}
+
+.fadeinImageFromRight {
+    animation: fadeinImageFromRight 1s ease-out forwards;
+}
+
+@keyframes fadeinTextFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeinImageFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Após a animação, os elementos ficam visíveis */
+.texto, .imagem {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Ajustes para diferentes tamanhos de tela */
+
+/* Para telas grandes (computadores) */
+@media screen and (min-width: 1024px) {
+    .tratamentos-deficiencias-motoras .conteudo {
+        max-width: 1200px;
+    }
+}
+
+/* Para telas médias (tablets) */
+@media screen and (max-width: 1024px) {
+    .tratamentos-deficiencias-motoras .conteudo {
+        width: 90%;
+    }
+
+    .tratamentos-deficiencias-motoras .texto, .tratamentos-deficiencias-motoras .imagem {
+        transform: translateX(0);
+    }
+}
+
+/* Para telas pequenas (smartphones) */
+@media screen and (max-width: 600px) {
+    .tratamentos-deficiencias-motoras .conteudo {
+        flex-direction: column; /* Empilha o texto e a imagem verticalmente */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tratamentos-deficiencias-motoras .texto, .tratamentos-deficiencias-motoras .imagem {
+        transform: translateX(0);
+        text-align: center; /* Centraliza o texto */
+    }
+}
+
+/* Estilização apenas para essa seção */
+.secao-personagens {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Título da seção de personagens */
+.secao-personagens h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
     width: 100%;
 }
 
+/* Grid de personagens */
+.personagens {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas */
+    gap: 30px; /* Aumenta o espaçamento entre os cards */
+    padding: 20px 100px; /* Adiciona espaçamento lateral */
+    justify-content: center;
+}
 
-.content2 {
+/* Estilização dos cards (agora maiores) */
+.personagem {
+    position: relative;
+    width: 220px;  /* Aumentado de 180px para 220px */
+    height: 260px; /* Aumentado de 220px para 260px */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Efeito de leve zoom ao passar o mouse */
+.personagem:hover {
+    transform: scale(1.05);
+}
+
+/* Imagem ajustável */
+.personagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção sem distorcer */
+}
+
+/* Máscara preta */
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #48a5a7bc;
+    color: white;
+    opacity: 0;
     display: flex;
-    justify-content: space-between; /* Espaça o conteúdo para as extremidades */
-    align-items: flex-start; /* Alinha os itens no topo */
-    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem; /* Texto levemente maior */
+    transition: opacity 0.3s ease-in-out;
 }
 
-.content2 img {
-    max-width: 40%; /* Limita o tamanho da imagem */
+/* Efeito hover */
+.personagem:hover .mask {
+    opacity: 1;
+}
+
+
+/* Define a animação kingcrimson: fade-in com subida */
+@keyframes kingcrimsonAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Inicia 50px abaixo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição original */
+    }
+}
+
+/* Classe que aplica a animação kingcrimson */
+.kingcrimson {
+    animation: kingcrimsonAnimation 1s forwards; /* 1s de duração */
+}
+
+
+.dados-deficiencias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #f9f6ee;
+    border-radius: 8px;
+  }
+  
+  /* Container da imagem */
+  .imagem-container {
+    flex: 1;
+    opacity: 0; /* Começa invisível */
+    transform: translateX(-50px); /* Inicia 50px à esquerda */
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .imagem-container img {
+    width: 100%;
+    max-width: 230px;
     height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Container do texto */
+  .texto-container {
+    flex: 1;
+    opacity: 0; /* Começa invisível */
+    transform: translateX(50px); /* Inicia 50px à direita */
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  /* Classes para animar quando a seção estiver visível */
+  .fadein-left {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .fadein-right {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Responsividade: empilhar os elementos em telas menores */
+  @media (max-width: 768px) {
+    .dados-deficiencias {
+      flex-direction: column;
+    }
+  }
+
+
+  footer {
+    padding: 2%;
+    font-size: 0.8rem;
+    background-color: #006A71;
+    color: #F2EFE7;
+    text-align: center;
 }
 
-.content2 .text-content {
-    width: 55%; /* Deixa o espaço para o texto */
-    text-align: right; /* Alinha o texto à direita */
-    padding-left: 20px; /* Adiciona um pouco de espaçamento */
-}
+.card1 {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+  }
+  
+  /* for all social containers*/
+  .socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: #003135;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .3s;
+  }
+  /* instagram*/
+  .containerOne:hover {
+    background-color: #d62976;
+    transition-duration: .3s;
+  }
+  /* twitter*/
+  .containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: .3s;
+  }
+  /* linkdin*/
+  .containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: .3s;
+  }
+  /* Whatsapp*/
+  .containerFour:hover {
+    background-color: #128C7E;
+    transition-duration: .3s;
+  }
+  
+  .socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: .3s;
+  }
+  
+  .socialSvg {
+    width: 17px;
+  }
+  
+  .socialSvg path {
+    fill: rgb(255, 255, 255);
+  }
+  
+  .socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+  }
+  
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+
+  .foot{
+    float: right;
+    margin-top: 50px;
+  }
